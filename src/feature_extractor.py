@@ -1,5 +1,4 @@
 import numpy as np
-import getopt
 import os, sys
 
 # Main path to your caffe installation
