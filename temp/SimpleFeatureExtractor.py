@@ -8,7 +8,7 @@ class SimpleFeatureExtractor(AbstractFeatureExtractor):
     """
     version = '0'
     def __init__(self, dataset_path = None, folder_list = None, model_name = 'bvlc_reference_caffenet',
-                 layer_name = 'fc8', caffe_root = '/home/ubuntu/caffe', mode='gpu'):
+                 layer_name = 'fc8', caffe_root = '/home/ubuntu/caffe/', mode='gpu'):
         AbstractFeatureExtractor.__init__(self, dataset_path, folder_list)
         self.model_name = model_name
         self.layer_name = layer_name
@@ -22,7 +22,7 @@ class SimpleFeatureExtractor(AbstractFeatureExtractor):
         self.postfix = "_" + self.model_name.replace('/','') + '_' + self.layer_name.replace('/','') + '_' + self.version
         if mode == 'gpu':
             caffe.set_device(0)
-            caffe.caffe.set_mode_gpu()
+            caffe.set_mode_gpu()
         else:
             caffe.set_mode_cpu()
 
@@ -33,8 +33,11 @@ class SimpleFeatureExtractor(AbstractFeatureExtractor):
 
     def save_features(self):
         for f, sub in self.folder_list.iteritems():
+            print f.split('/')[-2]
             self.folder_feature_extractor(f + 'Reference/')
+            print '\t{0}\n'.format('Reference');
             for ff in sub:
+                print '\t{0}\n'.format(ff.split('/')[-2]);
                 self.folder_feature_extractor(ff)
         return self.postfix
 
