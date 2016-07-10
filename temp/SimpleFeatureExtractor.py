@@ -33,11 +33,20 @@ class SimpleFeatureExtractor(AbstractFeatureExtractor):
 
     def save_features(self):
         for f, sub in self.folder_list.iteritems():
+<<<<<<< HEAD
             print f.split('/')[-2]
+=======
+            print '{0}:\n'.format(f.split('/')[-2])
+            print '\t{0}\n'.format('Reference')
+>>>>>>> 982f5d8a37f186fe422f58e5540840969aabe541
             self.folder_feature_extractor(f + 'Reference/')
             print '\t{0}\n'.format('Reference');
             for ff in sub:
+<<<<<<< HEAD
                 print '\t{0}\n'.format(ff.split('/')[-2]);
+=======
+                print '\t{0}\n'.format(ff.split('/')[-2])
+>>>>>>> 982f5d8a37f186fe422f58e5540840969aabe541
                 self.folder_feature_extractor(ff)
         return self.postfix
 
