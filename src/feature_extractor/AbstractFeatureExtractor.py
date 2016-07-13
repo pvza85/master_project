@@ -3,7 +3,7 @@ import os
 class AbstractFeatureExtractor:
     def __init__(self, dataset_path = None, folder_list = None):
         if dataset_path == None:
-            self.dataset_path = '/home/payam/dataset/stanford_mobile_images/'
+            self.dataset_path = '/home/ubuntu/dataset/stanford_mobile_images/'
         else:
             self.dataset_path = dataset_path
         if folder_list == None:

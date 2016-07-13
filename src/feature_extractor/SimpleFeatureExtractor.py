@@ -8,7 +8,7 @@ class SimpleFeatureExtractor(AbstractFeatureExtractor):
     """
     version = '0'
     def __init__(self, dataset_path = None, folder_list = None, model_name = 'bvlc_reference_caffenet',
-                 layer_name = 'fc8', caffe_root = '/home/payam/workspace/caffe/', mode='cpu'):
+                 layer_name = 'fc8', caffe_root = '/home/ubuntu/workspace/caffe/', mode='cpu'):
         AbstractFeatureExtractor.__init__(self, dataset_path, folder_list)
         self.model_name = model_name
         self.layer_name = layer_name
